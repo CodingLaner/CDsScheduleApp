@@ -31,6 +31,10 @@ public class Fragment1ToDo extends Fragment {
 
         adapter.addItem(new ToDoItem("코딩하기"));
         adapter.addItem(new ToDoItem("코딩하기"));
+        adapter.addItem(new ToDoItem("두줄 테스트 두줄 테스트 두줄 테스트 두줄 테스트 "));
+        adapter.addItem(new ToDoItem("코딩하기"));
+        adapter.addItem(new ToDoItem("코딩하기"));
+        adapter.addItem(new ToDoItem("세줄 테스트 세줄 테스트 세줄 테스트 세줄 테스트 세줄 테스트 세줄 테스트 "));
         adapter.addItem(new ToDoItem("코딩하기"));
         adapter.addItem(new ToDoItem("코딩하기"));
         adapter.addItem(new ToDoItem("코딩하기"));
@@ -40,11 +44,7 @@ public class Fragment1ToDo extends Fragment {
         adapter.addItem(new ToDoItem("코딩하기"));
         adapter.addItem(new ToDoItem("코딩하기"));
         adapter.addItem(new ToDoItem("코딩하기"));
-        adapter.addItem(new ToDoItem("코딩하기"));
-        adapter.addItem(new ToDoItem("코딩하기"));
-        adapter.addItem(new ToDoItem("코딩하기"));
-        adapter.addItem(new ToDoItem("코딩하기"));
-        adapter.addItem(new ToDoItem("코딩하기"));
+        adapter.addItem(new ToDoItem("마지막 줄"));
 
         recyclerView.setAdapter(adapter);
 
