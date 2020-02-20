@@ -3,6 +3,8 @@ package com.example.cdsscheduleapp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,7 +28,15 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
 
     @Override
     public void onBindViewHolder(@NonNull ToDoAdapter.ViewHolder viewHolder, int position) {
-        ToDoItem item = items.get(position);
+        final ToDoItem item = items.get(position);
+
+        viewHolder.checkBoxToDo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                item.setIsChecked(isChecked);
+            }
+        });
+
         viewHolder.setItem(item);
 
     }
@@ -67,11 +77,13 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewToDo;
+        CheckBox checkBoxToDo;
 
         public ViewHolder(View itemView, final OnToDoClickListener listener) {
             super(itemView);
 
             textViewToDo = itemView.findViewById(R.id.textViewToDo);
+            checkBoxToDo = itemView.findViewById(R.id.checkBoxToDo);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -88,7 +100,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
 
         public void setItem(ToDoItem item) {
             textViewToDo.setText(item.getTodo());
-
+            checkBoxToDo.setChecked(item.getIsChecked());
         }
     }
 }

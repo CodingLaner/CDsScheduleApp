@@ -2,6 +2,7 @@ package com.example.cdsscheduleapp;
 
 public class ToDoItem {
     String todo;
+    boolean isChecked = false;
 
     public ToDoItem(String todo) {
         this.todo = todo;
@@ -13,5 +14,13 @@ public class ToDoItem {
 
     public void setTodo(String todo) {
         this.todo = todo;
+    }
+
+    public void setIsChecked(boolean isChecked) {
+        this.isChecked = isChecked;
+    }
+
+    public boolean getIsChecked() {
+        return isChecked;
     }
 }
