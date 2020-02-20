@@ -1,4 +1,4 @@
-package com.example.cdsscheduleapp;
+package com.example.cdsscheduleapp.fragment1todo;
 
 public class ToDoItem {
     String todo;

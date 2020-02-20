@@ -1,4 +1,4 @@
-package com.example.cdsscheduleapp;
+package com.example.cdsscheduleapp.fragment1todo;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cdsscheduleapp.R;
 
 import java.util.ArrayList;
 
