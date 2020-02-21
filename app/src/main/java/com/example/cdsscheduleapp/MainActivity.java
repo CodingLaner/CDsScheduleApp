@@ -1,6 +1,7 @@
 package com.example.cdsscheduleapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -11,16 +12,19 @@ import android.view.MenuItem;
 import com.example.cdsscheduleapp.fragment1todo.Fragment1ToDo;
 import com.example.cdsscheduleapp.fragment4memo.Fragment4Memo;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements FragmentCallback, BottomNavigationView.OnNavigationItemSelectedListener {
     Fragment1ToDo fragment1;
     Fragment4Memo fragment4;
+    ActionBar ab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ab = getSupportActionBar();
+        ab.setTitle("할 일");
 
         fragment1 = new Fragment1ToDo();
         fragment4 = new Fragment4Memo();
@@ -60,8 +64,12 @@ public class MainActivity extends AppCompatActivity implements FragmentCallback,
         Fragment curFragment = null;
 
         switch (position) {
-            case 0: curFragment = fragment1;
-            case 3: curFragment = fragment4;
+            case 0:
+                curFragment = fragment1;
+                ab.setTitle("할 일");
+            case 3:
+                curFragment = fragment4;
+                ab.setTitle("메모");
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
