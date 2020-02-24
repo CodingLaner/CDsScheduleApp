@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.cdsscheduleapp.fragment1todo.Fragment1ToDo;
@@ -16,15 +17,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity implements FragmentCallback, BottomNavigationView.OnNavigationItemSelectedListener {
     Fragment1ToDo fragment1;
     Fragment4Memo fragment4;
-    ActionBar ab;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ab = getSupportActionBar();
-        ab.setTitle("할 일");
 
         fragment1 = new Fragment1ToDo();
         fragment4 = new Fragment4Memo();
@@ -66,12 +63,28 @@ public class MainActivity extends AppCompatActivity implements FragmentCallback,
         switch (position) {
             case 0:
                 curFragment = fragment1;
-                ab.setTitle("할 일");
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                break;
+            case 1:
+                Log.d("test", "test1");
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                break;
+            case 2:
+                Log.d("test", "test2");
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                break;
             case 3:
                 curFragment = fragment4;
-                ab.setTitle("메모");
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                break;
+            case 4:
+                Log.d("test", "test4");
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+
     }
+
+
 }
