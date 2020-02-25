@@ -67,11 +67,11 @@ public class MainActivity extends AppCompatActivity implements FragmentCallback,
                 break;
             case 1:
                 Log.d("test", "test1");
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                // getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
                 break;
             case 2:
                 Log.d("test", "test2");
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                // getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
                 break;
             case 3:
                 curFragment = fragment4;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements FragmentCallback,
                 break;
             case 4:
                 Log.d("test", "test4");
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                // getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
 
         }
 

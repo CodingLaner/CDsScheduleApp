@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:fadingEdge="horizontal"
+    android:fadingEdgeLength="20dp"
+    android:requiresFadingEdge="horizontal"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <ImageButton
+        android:id="@+id/todo_show_routine"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:maxHeight="20dp"
+        android:maxWidth="20dp"
+        android:src="@drawable/ic_routine_32dp" />
+
+    <ImageButton
+        android:id="@+id/todo_show_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:maxHeight="20dp"
+        android:maxWidth="20dp"
+        android:src="@drawable/ic_calendar_32dp" />
+
+    <ImageButton
+        android:id="@+id/todo_delete_checked"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:maxHeight="20dp"
+        android:maxWidth="20dp"
+        android:src="@drawable/ic_delete_checked_32dp" />
+
+    <ImageButton
+        android:id="@+id/todo_delete_all"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:maxHeight="20dp"
+        android:maxWidth="20dp"
+        android:src="@drawable/ic_delete_all_32dp" />
+
+
+
+</LinearLayout>

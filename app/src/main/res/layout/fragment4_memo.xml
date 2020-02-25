@@ -51,7 +51,7 @@
         android:background="#e6e6e6"
         android:scrollbars="none">
 
-        <include layout="@layout/editor_toolbar_linearlayout_horizontal" />
+        <include layout="@layout/memo_toolbar_linearlayout_horizontal" />
 
 
     </HorizontalScrollView>
