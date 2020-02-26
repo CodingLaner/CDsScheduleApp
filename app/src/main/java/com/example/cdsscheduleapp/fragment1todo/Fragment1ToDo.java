@@ -1,11 +1,15 @@
 package com.example.cdsscheduleapp.fragment1todo;
 
-import android.app.ActionBar;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +23,19 @@ import com.example.cdsscheduleapp.R;
 public class Fragment1ToDo extends Fragment {
     RecyclerView recyclerView;
     ToDoAdapter adapter;
+    private Context mContext;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mContext = null;
+    }
 
     @Nullable
     @Override
@@ -27,7 +44,7 @@ public class Fragment1ToDo extends Fragment {
 
         recyclerView = viewGroup.findViewById(R.id.recyclerViewToDo);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(viewGroup.getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
 
         adapter = new ToDoAdapter();
@@ -54,14 +71,49 @@ public class Fragment1ToDo extends Fragment {
         adapter.setOnItemClickListener(new OnToDoClickListener() {
             @Override //리사이클러뷰 항목 선택시 동작
             public void onItemClick(ToDoAdapter.ViewHolder holder, View view, int position) {
-                Toast.makeText(viewGroup.getContext(), "선택됨", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "선택됨", Toast.LENGTH_SHORT).show();
                 Log.d("test", "position : " + position);
                 Log.d("test", "isChecked? : " + adapter.getItem(position).isChecked);
+            }
+        });
+
+        ImageButton buttonShowRoutine = viewGroup.findViewById(R.id.todo_show_routine);
+        buttonShowRoutine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ImageButton buttonShowCalendar = viewGroup.findViewById(R.id.todo_show_calendar);
+        buttonShowCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ImageButton buttonDeleteChecked = viewGroup.findViewById(R.id.todo_delete_checked);
+        buttonDeleteChecked.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ImageButton buttonDeleteAll = viewGroup.findViewById(R.id.todo_delete_all);
+        buttonDeleteAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
        return viewGroup;
     }
 
+    private void showDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+    }
 
 }

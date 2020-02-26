@@ -1,5 +1,7 @@
 package com.example.cdsscheduleapp.fragment4memo;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,19 @@ import com.github.irshulx.models.EditorTextStyle;
 
 public class Fragment4Memo extends Fragment {
     Editor editor;
+    private Context mContext;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mContext = null;
+    }
 
     @Nullable
     @Override
