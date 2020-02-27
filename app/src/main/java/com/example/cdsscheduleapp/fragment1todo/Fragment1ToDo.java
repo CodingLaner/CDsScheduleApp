@@ -3,6 +3,7 @@ package com.example.cdsscheduleapp.fragment1todo;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,9 +22,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cdsscheduleapp.R;
 
 public class Fragment1ToDo extends Fragment {
-    RecyclerView recyclerView;
-    ToDoAdapter adapter;
+    private RecyclerView recyclerView;
+    private ToDoAdapter adapter;
     private Context mContext;
+    private boolean dialogReturn;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -97,7 +99,7 @@ public class Fragment1ToDo extends Fragment {
         buttonDeleteChecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showDialog("test", "test", 0);
             }
         });
 
@@ -105,15 +107,38 @@ public class Fragment1ToDo extends Fragment {
         buttonDeleteAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showDialog("test", "test", 0);
             }
         });
 
        return viewGroup;
     }
 
-    private void showDialog() {
+    private boolean showDialog(String title, String message, int iconId) {
+        dialogReturn = false;
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+
+        if (iconId != 0) {
+            builder.setIcon(iconId);
+        }
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialogReturn = true;
+            }
+        });
+
+        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        return dialogReturn;
     }
 
 }
