@@ -45,7 +45,7 @@
             android:singleLine="false" />
 
         <ImageButton
-            android:id="@+id/imageViewToDo"
+            android:id="@+id/editImageButtonToDo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"

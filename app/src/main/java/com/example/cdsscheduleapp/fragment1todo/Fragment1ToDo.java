@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,8 @@ public class Fragment1ToDo extends Fragment {
     private ToDoAdapter adapter;
     private Context mContext;
     private boolean dialogReturn;
+    private ImageButton editImageButtonToDo;
+    private TextView editTextToDo;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -79,6 +82,22 @@ public class Fragment1ToDo extends Fragment {
             }
         });
 
+        editImageButtonToDo = viewGroup.findViewById(R.id.editImageButtonToDo);
+        editTextToDo = viewGroup.findViewById(R.id.editTextToDo);
+
+        editImageButtonToDo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editTextToDo.getText().toString().isEmpty() == false) {
+                    adapter.addItem(new ToDoItem(editTextToDo.getText().toString()));
+                    adapter.notifyDataSetChanged();
+                    recyclerView.smoothScrollToPosition(adapter.getItemCount() - 1);
+                } else {
+                    Toast.makeText(mContext, "할 일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         ImageButton buttonShowRoutine = viewGroup.findViewById(R.id.todo_show_routine);
         buttonShowRoutine.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +118,9 @@ public class Fragment1ToDo extends Fragment {
         buttonDeleteChecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("test", "test", 0);
+                if (showDialog("삭제", "선택된 항목을 삭제하시겠습니까?", 0) == true) {
+
+                }
             }
         });
 
@@ -107,7 +128,9 @@ public class Fragment1ToDo extends Fragment {
         buttonDeleteAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("test", "test", 0);
+                if (showDialog("삭제", "모든 항목을 삭제하시겠습니까?", 0) == true) {
+
+                }
             }
         });
 
