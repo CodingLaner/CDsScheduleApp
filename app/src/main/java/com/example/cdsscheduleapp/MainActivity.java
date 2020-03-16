@@ -1,5 +1,6 @@
 package com.example.cdsscheduleapp;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,14 +10,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.example.cdsscheduleapp.fragment1todo.Fragment1ToDo;
 import com.example.cdsscheduleapp.fragment4memo.Fragment4Memo;
+import com.example.cdsscheduleapp.fragment5settings.Fragment5Settings;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements FragmentCallback, BottomNavigationView.OnNavigationItemSelectedListener {
     Fragment1ToDo fragment1;
     Fragment4Memo fragment4;
+    Fragment5Settings fragment5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements FragmentCallback,
 
         fragment1 = new Fragment1ToDo();
         fragment4 = new Fragment4Memo();
+        fragment5 = new Fragment5Settings();
 
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment1).commit();
         // 추후 설정에서 앱 시작시 프래그먼트 변경하는 기능 추가 고려
@@ -78,8 +83,9 @@ public class MainActivity extends AppCompatActivity implements FragmentCallback,
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
                 break;
             case 4:
-                Log.d("test", "test4");
-                // getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                curFragment = fragment5;
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+                break;
 
         }
 
